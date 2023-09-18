@@ -1,0 +1,103 @@
+.pay {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-top: 2px solid #00dd9b;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .payWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: fit-content;
+    padding: 20px 30px;
+
+    .horizDiv {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      input,
+      select {
+        padding: 3px 7px;
+        border-radius: 3px;
+        border: 1px solid rgba(0, 0, 0, 0.475);
+        width: 300px;
+      }
+
+      .horizDiv {
+
+        label {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          width: 30%;
+          gap: 5px;
+        }
+
+        .item {
+          label {
+            width: fit-content;
+            font-size: 15px;
+            display: block;
+          }
+          select {
+            width: 316px;
+          }
+
+        }
+
+        input[type=radio] {
+          width: fit-content;
+        }
+      }
+
+      .item .horizDiv {
+        margin-top: 10px;
+      }
+
+      #payAmt {
+        width: 100px;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      button {
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        background-color: rgb(82, 113, 255);
+        width: 30%;
+        align-self: center;
+        border-radius: 20px;
+      }
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+  }
+}

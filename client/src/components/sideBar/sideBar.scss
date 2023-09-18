@@ -1,0 +1,53 @@
+.sideBar {
+  flex: 2;
+  background-color: #073d7d;
+  position: sticky;
+  top: 70px;
+  height: calc(100vh - 70px);
+  color: #fff;
+
+  .container {
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0;
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+
+      .item {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+        padding: 12px 30px;
+        padding-right: 50px;
+
+        svg {
+          font-size: 30px;
+        }
+
+        span {
+          font-size: 16px;
+          line-height: 25px;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+          background-color: #fff;
+        }
+      }
+
+      .item:hover {
+        background-color: #b1a900;
+        border-radius: 7px;
+        cursor: pointer;
+      }
+    }
+  }
+}

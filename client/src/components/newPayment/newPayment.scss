@@ -1,0 +1,145 @@
+.newPayment {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.368);
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nPaymentContainer {
+    min-width: 10%;
+    min-height: 50%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 35px 50px;
+    padding-bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    -webkit-box-shadow: 0px 0px 25px 15px rgba(0, 255, 149, 0.2);
+    -moz-box-shadow: 0px 0px 25px 15px rgba(0, 255, 149, 0.2);
+    box-shadow: 0px 0px 25px 15px rgba(0, 255, 149, 0.2);
+    border-radius: 15px;
+    position: relative;
+
+    .first {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .first.inF {
+      justify-content: flex-start;
+      gap: 75px;
+    }
+
+    h1 {
+      color: rgba(0, 0, 0, 0.598);
+      font-size: 24px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .itemContainer {
+        display: flex;
+        gap: 20px;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+
+        input,
+        select {
+          padding: 5px;
+          border: 1px solid rgba(0, 0, 0, 0.475);
+          border-radius: 5px;
+          background-color: transparent;
+          width: 200px;
+        }
+
+        select {
+          width: 210px;
+
+          option {
+            // box-sizing: border-box;
+            padding: 5px 10px;
+            width: inherit;
+          }
+        }
+      }
+
+      label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+
+        .imgContainer {
+          position: relative;
+          width: 80px;
+          height: 80px;
+          cursor: pointer;
+
+          img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+          }
+
+          .icon {
+            position: absolute;
+            top: 0;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: 30px;
+            color: rgb(255, 255, 255);
+          }
+        }
+      }
+
+      button {
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        color: white;
+        background-color: #5271ff;
+        width: 300px;
+        align-self: center;
+        border-radius: 20px;
+        margin-top: 30px;
+      }
+
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    button.close {
+      position: absolute;
+      top: 35px;
+      right: 20px;
+      background-color: rgba(255, 5, 5, 0.833);
+      color: white;
+      border-radius: 5px;
+      border: none;
+      padding: 3px 6px;
+      cursor: pointer;
+    }
+  }
+}

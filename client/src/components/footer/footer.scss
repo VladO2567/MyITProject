@@ -1,0 +1,54 @@
+.footer {
+  background: rgb(13, 190, 190);
+  background: linear-gradient(
+    90deg,
+    rgba(13, 190, 190, 1) 0%,
+    rgba(152, 223, 200, 1) 100%
+  );
+  color: white;
+  padding: 30px 50px;
+
+  svg {
+    font-size: 35px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .contact {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .cInfo {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+
+          span {
+            font-size: 20px;
+            min-width: fit-content;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+
+      img {
+        width: 300px;
+      }
+    }
+  }
+}
