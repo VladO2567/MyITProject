@@ -1,0 +1,89 @@
+{
+  "login": {
+    "firsth1": "ENJOY YOUR EASY AND SECURE PAYMENTS",
+    "secondh1": "WITH US",
+    "rmMe": "Remember me",
+    "title": "Login",
+    "pass": "Password",
+    "btn": "Login",
+    "register": "Don't have an accout? Register!",
+    "err": "One or both values are left empty!"
+  },
+  "register": {
+    "firsth1": "BEGIN YOU JOURNEY",
+    "secondh1": "OF SAFE AND EASY PAYMENTS",
+    "thirdh1": "TODAY",
+    "title": "Register",
+    "btn": "Register",
+    "login": "Already have an accout? Log in!",
+    "err": "At least one value is empty!"
+  },
+  "payment": {
+    "payedAt": "Last paid: ",
+    "neverPaid": "Never",
+    "amtPaid": "Amount paid: ",
+    "moreBtn": "More",
+    "payBtn": "Pay",
+    "editBtn": "Edit",
+    "deleteBtn": "Delete"
+  },
+  "payments": {
+    "noPayments": "Add you first payment model by pressing on green button with a plus inside."
+  },
+  "homeHead": {
+    "h1": "My Payments: "
+  },
+  "sideBar": {
+    "dash": "Dashboard",
+    "spens": "Spendings",
+    "recips": "Receipts",
+    "pref": "Preferences",
+    "edit": "Edit profile",
+    "lout": "Logout"
+  },
+  "footer": {
+    "h1": "CONTACT US"
+  },
+  "editProfile": {
+    "h1": "Update profile",
+    "fName": "First name:",
+    "lName": "Last name:",
+    "email": "Email:",
+    "btn": "Update",
+    "newEmail": "New email detected. You are now being redirected to login page..."
+  },
+  "img": {
+    "add": "Choose picture",
+    "remove": "Remove picture"
+  },
+  "newPayment": {
+    "h1U": "Edit payment model",
+    "h1C": "Create new payment model",
+    "pName": "Payment name",
+    "rName": "Name of the receiver",
+    "rBank": "Bank of the receiver",
+    "chooseRecBank": "Choose receiver bank",
+    "accNum": "Account number",
+    "pRefNum": "Payment reference number",
+    "pDesc": "Payment description",
+    "uBtn": "Update",
+    "cBtn": "Create",
+    "closeBtn": "Close"
+  },
+  "pay": {
+    "h1": "Complete your payment",
+    "title": "Payment",
+    "amt": "Amount",
+    "pMethod": "Choose the payment method",
+    "cCard": "Credit card (work in progress)",
+    "freeOption": "It's free :D",
+    "btn": "Complete the payment"
+  },
+  "processPop": {
+    "processing": "Processing your payment...",
+    "redirecting": "Payment successful. Redirecting..."
+  },
+  "miniStats": {
+    "spendings": "spendings"
+  }
+}

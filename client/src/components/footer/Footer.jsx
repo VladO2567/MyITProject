@@ -6,13 +6,17 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+
+  const { t } = useTranslation();
+
   return (
     <div className="footer">
       <div className="container">
         <div className="left">
-          <h2>CONTACT US</h2>
+          <h2>{t("footer.h1")}</h2>
           <div className="contact">
             <div className="cInfo">
               <PhoneIcon />

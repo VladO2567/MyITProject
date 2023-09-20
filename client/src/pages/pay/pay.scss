@@ -91,7 +91,13 @@
         align-self: center;
         border-radius: 20px;
       }
+      
+      button:disabled {
+        background-color: rgb(142, 163, 255);
+        cursor: default;
+      }
     }
+
 
     img {
       width: 150px;

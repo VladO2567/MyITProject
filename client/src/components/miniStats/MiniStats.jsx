@@ -1,10 +1,13 @@
 import BarChart from "./BarChart.jsx";
 import "./miniStats.scss";
 import { getBarData, getListData } from "../../dataUtils.js";
+import { useTranslation } from "react-i18next";
 
 const MiniStats = ({ name, payData, setStatsOpen }) => {
   const barData = getBarData(payData);
   const listData = getListData(payData);
+
+  const { t } = useTranslation();
 
   const data = {
     labels: barData.map((data) => data.yearMonth),
@@ -13,10 +16,10 @@ const MiniStats = ({ name, payData, setStatsOpen }) => {
         label: name,
         data: barData.map((data) => data.totalAmount),
         backgroundColor: ["rgba(75,192,192,1)"],
-        borderColor: "black",
+        borderColor: "rgba(0,0,0,0.4)",
         borderWidth: 1,
         barThickness: "flex",
-        maxBarThickness: 45,
+        maxBarThickness: 35,
       },
     ],
   };
@@ -24,7 +27,7 @@ const MiniStats = ({ name, payData, setStatsOpen }) => {
   return (
     <div className="miniStats">
       <div className="mStatsContainer">
-        <h2>{name} spendings</h2>
+        <h2>{name} {t("miniStats.spendings")}:</h2>
         <div className="barChart">
           <BarChart data={data} />
         </div>
@@ -36,7 +39,7 @@ const MiniStats = ({ name, payData, setStatsOpen }) => {
             </div>
           ))}
         </div>
-        <button onClick={() => setStatsOpen(false)}>Close</button>
+        <button onClick={() => setStatsOpen(false)}>{t("newPayment.closeBtn")}</button>
       </div>
     </div>
   );

@@ -9,9 +9,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/authContext.js";
 import { useNavigate } from "react-router-dom";
 import { makeRequest } from "../../axios.js";
+import { useTranslation } from "react-i18next";
 
 const SideBar = () => {
   const { currentUser } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -31,26 +33,26 @@ const SideBar = () => {
         <div className="top menu">
           <div onClick={() => navigate("/")} className="item">
             <SpeedOutlinedIcon />
-            <span>Dashboard</span>
+            <span>{t("sideBar.dash")}</span>
           </div>
           <div className="item">
             <EqualizerOutlinedIcon />
-            <span>Spendings</span>
+            <span>{t("sideBar.spens")}</span>
           </div>
           <div className="item">
             <ArticleOutlinedIcon />
-            <span>Receipts</span>
+            <span>{t("sideBar.recips")}</span>
           </div>
         </div>
 
         <div className="bot menu">
           <div className="item">
             <SettingsOutlinedIcon />
-            <span>Preferences</span>
+            <span>{t("sideBar.pref")}</span>
           </div>
           <div onClick={() => navigate("/profile")} className="item">
             <PersonIcon />
-            <span>Edit profile</span>
+            <span>{t("sideBar.edit")}</span>
           </div>
           <div className="item" onClick={handleLogOut}>
             <LogoutOutlinedIcon />
@@ -62,7 +64,7 @@ const SideBar = () => {
               }
               alt=""
             />
-            <span>Logout</span>
+            <span>{t("sideBar.lout")}</span>
           </div>
         </div>
       </div>

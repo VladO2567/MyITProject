@@ -5,6 +5,7 @@ import NewPayment from "../newPayment/NewPayment.jsx";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { makeRequest } from "../../axios.js";
+import { useTranslation } from 'react-i18next';
 import MiniStats from "../miniStats/MiniStats.jsx";
 
 const Payment = ({ payment }) => {
@@ -13,6 +14,7 @@ const Payment = ({ payment }) => {
   const [statsOpen, setStatsOpen] = useState(false);
   const menuRef = useRef(null);
   const openButtonRef = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -83,8 +85,8 @@ const Payment = ({ payment }) => {
                 ref={menuRef}
                 className={payment.img === "" ? "miniMenu noPic" : "miniMenu"}
               >
-                <button onClick={() => setOpenForm(true)}>Edit</button>
-                <button onClick={handleDelete}>Remove</button>
+                <button onClick={() => setOpenForm(true)}>{t('payment.editBtn')}</button>
+                <button onClick={handleDelete}>{t('payment.deleteBtn')}</button>
               </div>
             )}
             {payment.payImg !== "" && (
@@ -94,11 +96,11 @@ const Payment = ({ payment }) => {
         </div>
         <div className="info">
           <span>
-            <b>Last paid:</b>{" "}
-            {payment.lastPaid !== null ? formatDate(payment.lastPaid) : "Never"}
+            <b>{t('payment.payedAt')}</b>
+            {payment.lastPaid !== null ? formatDate(payment.lastPaid) + "." : t("payment.neverPaid")}
           </span>
           <span>
-            <b>Amount paid:</b>{" "}
+            <b>{t('payment.amtPaid')}</b>
             {payment.paidAmt !== null ? payment.paidAmt + " €" : "--"}
           </span>
         </div>
@@ -108,13 +110,13 @@ const Payment = ({ payment }) => {
             className="bttn"
             disabled={!isLoading && payData.length === 0}
           >
-            More
+            {t('payment.moreBtn')}
           </button>
           <button
             onClick={() => navigate("/pay/" + payment.modelId)}
             className="bttn pay"
           >
-            Pay
+            {t('payment.payBtn')}
           </button>
         </div>
       </div>

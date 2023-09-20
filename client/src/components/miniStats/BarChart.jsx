@@ -1,4 +1,5 @@
 import { Bar } from "react-chartjs-2";
+// eslint-disable-next-line
 import { Chart as ChartJS } from "chart.js/auto";
 
 const BarChart = ({ data }) => {
@@ -12,12 +13,12 @@ const BarChart = ({ data }) => {
           },
         },
         grid: {
-          display: true,
+          display: false,
         },
       },
       x: {
         grid: {
-          display: true,
+          display: false,
         },
       },
     },

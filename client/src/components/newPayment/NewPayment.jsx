@@ -3,10 +3,13 @@ import "./newPayment.scss";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { useMutation, useQueryClient } from "react-query";
 import { makeRequest } from "../../axios.js";
+import { useTranslation } from "react-i18next";
 
 const NewPayment = ({ payment, setOpenForm }) => {
   const [mImg, setMImg] = useState(null);
   const [err, setErr] = useState(null);
+
+  const { t } = useTranslation();
 
   const [texts, setTexts] = useState(
     payment !== undefined
@@ -127,9 +130,13 @@ const NewPayment = ({ payment, setOpenForm }) => {
     <div className="newPayment">
       <div className="nPaymentContainer">
         <div className="first">
-          {payment ? <h1>Edit your payment</h1> : <h1>Create new payment</h1>}
+          {payment ? (
+            <h1>{t("newPayment.h1U")}</h1>
+          ) : (
+            <h1>{t("newPayment.h1C")}</h1>
+          )}
           <button className="close" onClick={() => setOpenForm(false)}>
-            Close
+            {t("newPayment.closeBtn")}
           </button>
         </div>
         <form>
@@ -138,30 +145,30 @@ const NewPayment = ({ payment, setOpenForm }) => {
               style={{ display: "flex", flexDirection: "column", gap: "20px" }}
             >
               <div className="item">
-                <label htmlFor="payName">Payment name:</label>
+                <label htmlFor="payName">{t("newPayment.pName")}:</label>
                 <input
                   type="text"
                   name="payName"
                   id="payName"
-                  placeholder="Name"
+                  placeholder={t("newPayment.pName")}
                   value={texts.payName}
                   onChange={handleChange}
                 />
               </div>
               <div className="item">
-                <label htmlFor="recName">Name of the receiver:</label>
+                <label htmlFor="recName">{t("newPayment.rName")}:</label>
                 <input
                   type="text"
                   name="recName"
                   id="recName"
-                  placeholder="Name of the receiver"
+                  placeholder={t("newPayment.rName")}
                   value={texts.recName}
                   onChange={handleChange}
                 />
               </div>
             </div>
             <label htmlFor="mImg">
-              <span>Choose Picture</span>
+              <span>{t("img.add")}</span>
               <div className="imgContainer">
                 <img
                   src={
@@ -184,7 +191,7 @@ const NewPayment = ({ payment, setOpenForm }) => {
                 }}
                 style={{ cursor: "pointer" }}
               >
-                Remove picture
+                {t("img.remove")}
               </span>
             </label>
             <input
@@ -196,7 +203,7 @@ const NewPayment = ({ payment, setOpenForm }) => {
           </div>
           <div className="itemContainer">
             <div className="item">
-              <label htmlFor="bankNum">Bank of the receiver:</label>
+              <label htmlFor="bankNum">{t("newPayment.rBank")}:</label>
               <select
                 name="bankNum"
                 id="bankNum"
@@ -204,7 +211,7 @@ const NewPayment = ({ payment, setOpenForm }) => {
                 onChange={handleChange}
               >
                 <option value="" disabled hidden>
-                  Choose receiver bank
+                  {t("newPayment.chooseRecBank")}
                 </option>
                 {banks.map((bank) => (
                   <option value={bank.value} key={bank.value}>
@@ -214,13 +221,13 @@ const NewPayment = ({ payment, setOpenForm }) => {
               </select>
             </div>
             <div className="item">
-              <label htmlFor="accNum">Account number:</label>
+              <label htmlFor="accNum">{t("newPayment.accNum")}:</label>
               <input
                 type="number"
                 min="0"
                 name="accNum"
                 id="accNum"
-                placeholder="Account number"
+                placeholder={t("newPayment.accNum")}
                 value={texts.accNum}
                 onChange={handleChange}
                 onKeyDown={(e) => {
@@ -231,23 +238,23 @@ const NewPayment = ({ payment, setOpenForm }) => {
           </div>
           <div className="itemContainer">
             <div className="item">
-              <label htmlFor="payRefNum">Payment reference number:</label>
+              <label htmlFor="payRefNum">{t("newPayment.pRefNum")}:</label>
               <input
                 type="text"
                 name="payRefNum"
                 id="payRefNum"
-                placeholder="Payment reference number"
+                placeholder={t("newPayment.pRefNum")}
                 value={texts.payRefNum}
                 onChange={handleChange}
               />
             </div>
             <div className="item">
-              <label htmlFor="payDesc">Payment description:</label>
+              <label htmlFor="payDesc">{t("newPayment.pDesc")}:</label>
               <input
                 type="text"
                 name="payDesc"
                 id="payDesc"
-                placeholder="Payment description"
+                placeholder={t("newPayment.pDesc")}
                 value={texts.payDesc}
                 onChange={handleChange}
               />
@@ -255,9 +262,9 @@ const NewPayment = ({ payment, setOpenForm }) => {
           </div>
           {err && <p style={{ color: "red" }}>{err}</p>}
           {payment ? (
-            <button onClick={handleClick}>Update</button>
+            <button onClick={handleClick}>{t("newPayment.uBtn")}</button>
           ) : (
-            <button onClick={handleClick}>Create</button>
+            <button onClick={handleClick}>{t("newPayment.cBtn")}</button>
           )}
         </form>
       </div>

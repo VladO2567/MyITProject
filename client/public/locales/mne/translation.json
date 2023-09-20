@@ -1,0 +1,89 @@
+{
+  "login": {
+    "firsth1": "UŽIVAJTE U LAKIM I SIGURNIM UPLATAMA",
+    "secondh1": "SA NAMA",
+    "rmMe": "Zapamti me",
+    "title": "Prijava",
+    "pass": "Lozinka",
+    "btn": "Prijavite se",
+    "register": "Nemate nalog? Registrujte se sada!",
+    "err": "Jedno ili oba polja nijesu popunjena!"
+  },
+  "register": {
+    "firsth1": "ZAPOČNITE VAŠE",
+    "secondh1": "SIGURNE I LAKE UPLATE",
+    "thirdh1": "SADA",
+    "title": "Registracija",
+    "btn": "Registrujete se",
+    "login": "Već imate nalog? Prijavite se!",
+    "err": "Makar jendo polje nije popunjeno!"
+  },
+  "payment": {
+    "payedAt": "Poslednja uplata: ",
+    "neverPaid": "--",
+    "amtPaid": "Uplaćeno: ",
+    "moreBtn": "Još",
+    "payBtn": "Platite",
+    "editBtn": "Izmjenite",
+    "deleteBtn": "Izbrišite"
+  },
+  "payments": {
+    "noPayments": "Da kreirate vaš prvi model za uplatu kliknite na zeleno dugme sa plusom."
+  },
+  "homeHead": {
+    "h1": "Moje uplate: "
+  },
+  "sideBar": {
+    "dash": "Kontrolni panel",
+    "spens": "Potrošnja",
+    "recips": "Računi",
+    "pref": "Podešavanja",
+    "edit": "Moj profil",
+    "lout": "Odjavite se"
+  },
+  "footer": {
+    "h1": "KONTAKTIRAJTE NAS"
+  },
+  "editProfile": {
+    "h1": "Izmjenite profil",
+    "fName": "Ime",
+    "lName": "Prezime",
+    "email": "Email:",
+    "btn": "Potvrdite promjene",
+    "newEmail": "Email promjenjen. Sada ćete biti vraćeni na stranicu za prijavljivanje..."
+  },
+  "img": {
+    "add": "Izaberite sliku",
+    "remove": "Uklonite sliku"
+  },
+  "newPayment": {
+    "h1U": "Izmjenite model za uplatu",
+    "h1C": "Kreirajte novi model za uplatu",
+    "pName": "Naziv uplate",
+    "rName": "Naziv primaoca",
+    "rBank": "Banka primaoca",
+    "chooseRecBank": "Izaberite banku primaoca",
+    "accNum": "Broj računa primaoca",
+    "pRefNum": "Poziv na broj odobrenja",
+    "pDesc": "Opis plaćanja",
+    "uBtn": "Potvrdite izmjene",
+    "cBtn": "Kreirajte",
+    "closeBtn": "Zatvorite"
+  },
+  "pay": {
+    "h1": "Dovršite vašu uplatu",
+    "title": "Uplata",
+    "amt": "Iznos",
+    "pMethod": "Izaberite način plaćanja",
+    "cCard": "Kreditna kartica (funkcionalnost u izradi)",
+    "freeOption": "Platiće drzava :)",
+    "btn": "Potrvdite uplatu"
+  },
+  "processPop": {
+    "processing": "Obrađujemo vašu uplatu...",
+    "redirecting": "Uplata uspjesna. Preusmjeravamo..."
+  },
+  "miniStats": {
+    "spendings": "potrošnja"
+  }
+}

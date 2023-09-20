@@ -8,20 +8,56 @@ import {
   Outlet,
   RouterProvider,
   createBrowserRouter,
+  useNavigate,
 } from "react-router-dom";
 import "./app.scss";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/authContext.js";
 import Footer from "./components/footer/Footer.jsx";
 import Pay from "./pages/pay/Pay.jsx";
 import EditProfile from "./pages/editProfile/EditProfile.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { makeRequest } from "./axios.js";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
   const queryClient = new QueryClient();
 
   const Layout = () => {
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true); // Add a loading state
+    const [accessTokenExists, setAccessTokenExists] = useState(false);
+
+    useEffect(() => {
+      const fetchAccessToken = async () => {
+        try {
+          const response = await makeRequest.get("/auth/token");
+          const { accessToken } = response.data;
+          if (!accessToken) {
+            navigate("/login");
+          } else {
+            setAccessTokenExists(true);
+          }
+        } catch (error) {
+          console.error("Error fetching accessToken:", error);
+        } finally {
+          setIsLoading(false); // Set loading to false once you have fetched and checked the token
+        }
+      };
+
+      fetchAccessToken();
+    }, [navigate]);
+
+    // Display loading indicator while checking for access token
+    if (isLoading) {
+      return <div></div>;
+    }
+
+    // If accessToken doesn't exist, you have already navigated to /login
+    if (!accessTokenExists) {
+      return null; // Render nothing if accessToken doesn't exist
+    }
+
     return (
       <QueryClientProvider client={queryClient}>
         <div className="layout">

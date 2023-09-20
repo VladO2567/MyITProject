@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import Payment from "../payment/Payment.jsx";
 import "./payments.scss";
 import { makeRequest } from "../../axios.js";
+import { useTranslation } from "react-i18next";
 
 const Payments = () => {
   const { isLoading, error, data } = useQuery("models", () =>
@@ -9,6 +10,8 @@ const Payments = () => {
       return res.data;
     })
   );
+
+  const { t } = useTranslation();
 
   // TEMPORARY
   // eslint-disable-next-line
@@ -86,6 +89,8 @@ const Payments = () => {
         ? "Something went wrong!"
         : isLoading
         ? "Loading..."
+        : data.length === 0
+        ? <p>{t("payments.noPayments")}</p>
         : data.map((payment) => <Payment payment={payment} key={payment.modelId} />)}
     </div>
   );

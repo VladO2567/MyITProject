@@ -53,18 +53,22 @@ export function getBarData(originalArray) {
   return resultArray;
 }
 
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate().toString().padStart(2, '0');
+  const month = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(date);
+  const year = date.getFullYear();
+
+  return `${day}. ${month} ${year}.`;
+}
+
 export function getListData(originalArray) {
   const resultArray = [];
 
   originalArray.forEach((item) => {
-    const date = new Date(item.payedAt);
-    const year = date.getFullYear();
-    const month = new Intl.DateTimeFormat("en-US", { month: "short" }).format(
-      date
-    );
-    const yearMonth = `${month} ${year}`;
+    
 
-    resultArray.push({...item, payedAt: yearMonth});
+    resultArray.push({...item, payedAt: formatDate(item.payedAt)});
   });
 
   return resultArray.reverse();

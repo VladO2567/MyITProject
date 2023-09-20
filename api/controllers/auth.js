@@ -52,10 +52,14 @@ export const login = (req, res) => {
     );
 
     const { password, ...others } = data[0];
+    const expirationDate = req.body.rememberMe
+    ? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+    : undefined;
 
     res
       .cookie("accessToken", token, {
         httpOnly: true,
+        expires: expirationDate,
       })
       .status(200)
       .json(others);
@@ -71,3 +75,8 @@ export const logout = (req, res) => {
     .status(200)
     .json("User has been logged out.");
 };
+
+export const getToken = (req, res) => {
+  const accessToken = req.cookies.accessToken;
+  res.json({ accessToken });
+}

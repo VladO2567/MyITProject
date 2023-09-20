@@ -3,9 +3,13 @@ import Logo from "../../assets/high-resolution-logo-transparent-background.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/authContext.js";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const [ isChecked, setIsChecked] = useState(false);
+
+  const { t } = useTranslation();
 
   const [loginData, setLoginData] = useState({
     email: "",
@@ -29,10 +33,10 @@ const Login = () => {
     e.preventDefault();
 
     if (loginData.email === "" || loginData.password === "") {
-      setErr("One or both values are left empty!");
+      setErr(t("login.err"));
     } else {
       try {
-        await login(loginData);
+        await login({...loginData, rememberMe: isChecked});
         navigate("/");
       } catch (err) {
         setErr(err.response.data);
@@ -44,12 +48,12 @@ const Login = () => {
     <div className="login">
       <img src={Logo} alt="LOGO" />
       <div className="bull">
-        <h3>ENJOY YOUR EASY AND SECURE PAYMENTS</h3>
-        <h3>WITH US</h3>
+        <h3>{t("login.firsth1")}</h3>
+        <h3>{t("login.secondh1")}</h3>
       </div>
       <div className="container">
         <div className="form">
-          <h1>Login</h1>
+          <h1>{t("login.title")}</h1>
           <form>
             <input
               type="text"
@@ -61,24 +65,23 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              placeholder="Password"
+              placeholder={t("login.pass")}
               value={loginData.password}
               onChange={handleChange}
             />
             {err && <p style={{ color: "red" }}>{err}</p>}
             <div className="bttns">
               <div className="checkbox">
-                <input type="checkbox" id="chbox" />{" "}
-                <label htmlFor="chbox">Remember me</label>
+                <input value={isChecked} type="checkbox" id="chbox" onClick={() => setIsChecked(!isChecked)} />{" "}
+                <label htmlFor="chbox">{t("login.rmMe")}</label>
               </div>
-              <button onClick={handleLogin}>Login</button>
+              <button onClick={handleLogin}>{t("login.btn")}</button>
             </div>
           </form>
         </div>
         <div className="more">
-          <span>Forgot your password?</span>
           <span onClick={() => navigate("/register")} className="reg">
-            Don't have an accout? Register!
+            {t("login.register")}
           </span>
         </div>
       </div>

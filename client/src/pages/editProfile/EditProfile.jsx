@@ -4,9 +4,11 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { AuthContext } from "../../context/authContext.js";
 import { makeRequest } from "./../../axios.js";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const EditProfile = () => {
   const { currentUser, setCurrentUser } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const [profImg, setProfImg] = useState(null);
   const [texts, setTexts] = useState({
@@ -85,11 +87,11 @@ const EditProfile = () => {
 
   return (
     <div className="editProfile">
-      <h1>Update profile</h1>
+      <h1>{t("editProfile.h1")}</h1>
       <div className="profileWrapper">
         <form>
           <label htmlFor="profileImg">
-            <span>Choose Picture</span>
+            <span>{t("img.add")}</span>
             <div className="imgContainer">
               <img
                 src={
@@ -112,7 +114,7 @@ const EditProfile = () => {
               }}
               style={{ cursor: "pointer" }}
             >
-              Remove picture
+              {t("img.remove")}
             </span>
           </label>
           <input
@@ -123,30 +125,30 @@ const EditProfile = () => {
           />
           <div className="horizDiv">
             <div className="item">
-              <label htmlFor="firstName">First name:</label>
+              <label htmlFor="firstName">{t("editProfile.fName")}:</label>
               <input
                 type="text"
                 name="firstName"
                 id="firstName"
-                placeholder="First name"
+                placeholder={t("editProfile.fName")}
                 value={texts.firstName}
                 onChange={handleChange}
               />
             </div>
             <div className="item">
-              <label htmlFor="lastName">Last name:</label>
+              <label htmlFor="lastName">{t("editProfile.lName")}:</label>
               <input
                 type="text"
                 name="lastName"
                 id="lastName"
-                placeholder="Last name"
+                placeholder={t("editProfile.lName")}
                 value={texts.lastName}
                 onChange={handleChange}
               />
             </div>
           </div>
           <div className="item">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email">{t("editProfile.email")}</label>
             <input
               type="text"
               name="email"
@@ -158,10 +160,10 @@ const EditProfile = () => {
           </div>
           {newEmail && (
             <p>
-              New email detected. You are now being redirected to login page...
+              {t("editProfile.newEmail")}
             </p>
           )}
-          <button onClick={handleUpdate}>Update</button>
+          <button onClick={handleUpdate}>{t("editProfile.btn")}</button>
         </form>
       </div>
     </div>
